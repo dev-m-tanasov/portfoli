@@ -1,0 +1,1067 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Montserrat:wght@200;400;600;800&display=swap");
+
+:root{
+    /* */
+    --black: rgba(0, 0, 0, 1);
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+::-webkit-scrollbar-button{
+    display: none;
+}
+
+::-webkit-scrollbar-thumb{
+    display: none;
+}
+
+::-webkit-scrollbar-track {
+    display: none;
+}
+
+::-webkit-scrollbar-corner{
+    display: none;
+}
+
+::-webkit-resizer{
+    display: none;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-scrollbar: none;
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    font-family: "Montserrat", sans-serif;
+}
+
+div#main {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+    /* color: azure; */
+    background-color: transparent;
+    opacity: .5;
+    z-index: 1;
+    transition: all .3s ease;
+}
+
+.header.out {
+    transform: translateY(-50px);
+}
+
+#header a{
+    font-size: 2rem;
+    color: #cfd6f9;
+    text-shadow: 0 0 4px #c60000, 0 0 8px #c60000, 0 0 12px #36c600, 0 0 16px #0300c6, 0 0 20px #0300c6;
+}
+
+
+section {
+    position: relative;
+}
+
+section.dark {
+    top: 0;
+    bottom: 0;
+    min-height: 100vh;
+    color: white;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+#container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    right: 50%;
+    top: 50%;
+    bottom: 0;
+    margin: auto;
+    z-index: 0;
+    filter: blur(5px);
+    opacity: .5;
+}
+
+.wrapper {
+    min-height: 100vh;
+}
+
+section.light {
+    min-height: 100vh;
+    color: black;
+    background: rgba(255, 255, 255, 0.35);
+    padding: 8rem 0;
+}
+
+.color-white>* {
+    color: white;
+}
+
+.about-info {
+    background-color: transparent;
+    filter: drop-shadow(2px 4px 6px black);
+    width: 50%;
+    padding: 4rem;
+    margin: 3rem auto;
+    text-align: center;
+}
+
+
+/*********** CUSTOM TOOLTIP  *************/
+.tooltip-custom {
+    position: absolute;
+    z-index: 999;
+    left: -9999px;
+    background-color: #fff;
+    padding: 7px 10px;
+    border: 1px solid blue;
+    border-radius: 5px;
+    width: auto;
+    max-width: 250px;
+}
+/***********   *************/
+
+section img.background {
+    width: 100vmax;
+    height: 100%;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    /* transform: translate(-50%, 0); */
+    pointer-events: none;
+    object-fit: cover;
+}
+
+canvas {
+    position: absolute;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+}
+
+.row {
+    position: absolute;
+    top: 30%;
+    left: 2rem;
+}
+
+.col {
+    visibility: hidden;
+    /* for animated elements */
+}
+
+.col:first-child {
+    animation-delay: .5s;
+}
+
+.col:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.col:nth-child(3) {
+    animation-delay: 1.5s;
+}
+
+.col:nth-child(4) {
+    animation-delay: 2s;
+}
+
+.col:nth-child(5) {
+    animation-delay: 2.5s;
+}
+
+.scroll {
+    position: absolute;
+    bottom: 8rem;
+    left: 50%;
+    transition: all .8s ease;
+}
+
+.scroll img {
+    height: 3rem;
+    width: 3rem
+}
+.click-me{
+   font-size: 3rem;
+   position: absolute;
+   left: 50vw;
+   bottom: 20vh;
+}
+
+
+
+/***************** STILE FOR WORD IN FIRST DISPLAY BLOCK   **********************/
+
+.word {
+    position: absolute;
+    left: 170px;
+    width: 220px;
+    opacity: 0;
+}
+.letter {
+    display: inline-block;
+    position: relative;
+    /* float: left; */
+    transform: translateZ(25px);
+    transform-origin: 50% 50% 25px;
+}
+.letter.out {
+    transform: rotateX(90deg);
+    transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.letter.behind {
+    transform: rotateX(-90deg);
+}
+
+.letter.in {
+    transform: rotateX(0deg);
+    transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.wisteria {
+    color: azure;
+}
+
+.belize {
+    color: azure;
+}
+
+.pomegranate {
+    color: azure;
+}
+
+/***************** END  **********************/
+
+
+h1 {
+    font-weight: 300;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 7rem;
+    margin: 0;
+}
+
+h2 {
+    font-weight: 400;
+    font-size: 2rem;
+    margin: 0;
+    text-align: center;
+}
+
+h3 {
+    font-weight: 400;
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+/******************* SHADOW FOR TEXT  *******************/
+
+.box h3 {
+    color: #b6fff1;
+    text-shadow: 0 0 4px #00c6a0, 0 0 8px #00c6a0, 0 0 12px #00c6a0, 0 0 16px #00c6a0, 0 0 20px #00c6a0;
+}
+/******************* END  *******************/
+
+p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 0;
+    font-weight: 300;
+}
+
+.more-info {
+    padding: 1rem 3rem 0
+}
+
+p.large {
+    font-size: 24px;
+}
+
+p.small {
+    font-size: 15px;
+    text-align: center;
+}
+
+hr {
+    margin: 2.5rem;
+}
+
+ul.skills {
+    text-align: left;
+    columns: 2;
+    font-size: 1.25rem;
+    margin: 2rem 3rem;
+    gap: 3rem;
+}
+
+li {
+    line-height: 1.7;
+}
+
+.skills li{
+   list-style-type: none;
+}
+
+
+.skills li:nth-child(1) {
+    list-style-image: url(img/vs-code.png);
+}
+
+.skills li:nth-child(2) {
+    list-style-image: url(img/vs-code.png);
+}
+
+.skills li:nth-child(3) {
+    list-style-image: url(img/html.png);
+}
+
+.skills li:nth-child(4) {
+    list-style-image: url(img/css.png);
+}
+
+.skills li:nth-child(5) {
+    list-style-image: url(img/js.png);
+}
+
+.skills li:nth-child(6) {
+    list-style-image: url(img/vue.png);
+}
+
+.skills li:nth-child(7) {
+    list-style-image: url(img/php.png);
+}
+
+.skills li:nth-child(8) {
+    list-style-image: url(img/jquery.png);
+}
+
+.skills li:nth-child(9) {
+    list-style-image: url(img/wordpress.png);
+}
+
+
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: #4e567e;
+}
+
+
+
+/***************** FOR PORTFOLIO DISPLAY BLOCK   ****************/
+
+.bg-animate {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    animation: spaceJam 120s linear infinite;
+}
+
+.background-animate {
+    background: url(img/background-animate.png);
+}
+
+.midground-animate {
+    background: url(img/midground-animate.png);
+    animation-duration: 60s;
+}
+
+.foreground-animate {
+    background: url(img/foreground-animate.png);
+    animation-duration: 30s;
+}
+
+@keyframes spaceJam {
+    100% {
+        background-position: -2500px -500px;
+    }
+}
+
+/***************** END  ****************/
+
+/********* text-color-animation FOR DISPLAY BLOCK EDUCATION IN TITLE ************/
+.animate-charcter{
+    text-transform: uppercase;
+    background-image: linear-gradient(-225deg,
+            #231557 0%,
+            #44107a 29%,
+            #ff1361 67%,
+            #fff800 100%);
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: azure;
+    background-clip: text;
+    /* text-fill-color: transparent; */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear infinite;
+
+}
+/*************   ****************/
+
+.edu-info{
+    background-color: white; 
+    width: 50%; 
+    padding: 4rem; 
+    margin: 3rem auto; 
+    text-align: center;
+}
+
+/*********************** MEDIA QUERY EDUCATION BLOCK   **********************/
+
+@media all and (min-width:319px) and (max-width:500px) {
+    .edu-info{
+        background-color: white; 
+        width: 75%; 
+        padding: 2rem; 
+        margin: 1rem auto; 
+        text-align: center;
+    }
+}
+/********************  END   *********************/
+
+
+
+.portfolio-hero img{
+    width: 100%;
+    object-fit: cover;
+    animation: 1s ease-out 0s 1 slideInLeft;
+}
+
+
+
+/*********************** MEDIA QUERY PORTFOLIO BLOCK   **********************/
+
+@media all and (min-width: 319px) and (max-width: 768){
+    .card-back {
+        transform: rotateY(120deg);
+    }
+    }
+
+@media all and (min-width: 319px) and (max-width: 1082){    
+    .portfolio-hero img{
+        display: none !important;
+    }
+    }
+
+/********************  END   *********************/
+
+
+
+
+
+
+
+.portfolio>h2 {
+    color: azure
+}
+
+.portfolio .small {
+    color: azure !important;
+}
+
+.portfolio-container {
+    display: flex;
+    flex-direction: row;
+    padding-top: 3rem;
+}
+
+.portfolio-hero {
+    align-self: center;
+    /* max-width: 40%; */
+}
+
+.containers {
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: 460px 430px;
+    grid-gap: 20px;
+}
+
+.containers .box {
+    border-radius: 10px;
+    padding: 24px 16px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    border: 1px solid rgb(204, 204, 204);
+    text-align: center;
+}
+
+
+
+
+/************************ STYLES FOR CARDS   ******************************/
+
+    /* Typography =======================*/
+        /* Headings */
+        /* Main heading for card's front cover */
+        .card-front__heading {
+            font-size: 1.5rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Main heading for inside page */
+        .inside-page__heading {
+            padding-bottom: 1rem;
+            width: 100%;
+        }
+
+        /* Mixed */
+        /* For both inside page's main heading and 'view me' text on card front cover */
+        .inside-page__heading,
+        .card-front__text-view {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-top: 0.2rem;
+        }
+
+        .inside-page__heading--city,
+        .card-front__text-view--city {
+            color: #ff62b2;
+        }
+
+        .inside-page__heading--ski,
+        .card-front__text-view--ski {
+            color: #2aaac1;
+        }
+
+        .inside-page__heading--beach,
+        .card-front__text-view--beach {
+            color: #fa7f67;
+        }
+
+        .inside-page__heading--camping,
+        .card-front__text-view--camping {
+            color: #00b97c;
+        }
+
+        /* Front cover */
+        .card-front__tp {
+            color: #fafbfa;
+        }
+
+        /* For pricing text on card front cover */
+        .card-front__text-price {
+            font-size: 1.2rem;
+            margin-top: -0.2rem;
+        }
+
+        /* Back cover */
+        /* For inside page's body text */
+        .inside-page__text {
+            color: #333;
+        }
+
+        /* Icons ===========================================*/
+        .card-front__icon {
+            fill: #fafbfa;
+            font-size: 3vw;
+            height: 3.25rem;
+            margin-top: -0.5rem;
+            width: 3.25rem;
+        }
+
+    /* Buttons =================================================*/
+    .inside-page__btn {
+        background-color: transparent;
+        border: 3px solid;
+        border-radius: 0.5rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-top: 2rem;
+        overflow: hidden;
+        padding: 0.7rem 0.75rem;
+        position: relative;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        width: 90%;
+        z-index: 10;
+    }
+
+    .inside-page__btn::before {
+        content: "";
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        transform: scaleY(0);
+        transition: all 0.3s ease;
+        width: 100%;
+        z-index: -1;
+    }
+
+    .inside-page__btn--city {
+        border-color: #ff40a1;
+        color: #ff40a1;
+    }
+
+    .inside-page__btn--city::before {
+        background-color: #ff40a1;
+    }
+
+    .inside-page__btn--ski {
+        border-color: #279eb2;
+        color: #279eb2;
+    }
+
+    .inside-page__btn--ski::before {
+        background-color: #279eb2;
+    }
+
+    .inside-page__btn--beach {
+        border-color: #fa7f67;
+        color: #fa7f67;
+    }
+
+    .inside-page__btn--beach::before {
+        background-color: #fa7f67;
+    }
+
+    .inside-page__btn--camping {
+        border-color: #00b97d;
+        color: #00b97d;
+    }
+
+    .inside-page__btn--camping::before {
+        background-color: #00b97d;
+    }
+
+    .inside-page__btn:hover {
+        color: #fafbfa;
+    }
+
+    .inside-page__btn:hover::before {
+        transform: scaleY(1);
+    }
+
+        /* A container to hold the flip card and the inside page */
+        .card {
+            background-color: rgba(0, 0, 0, 0.05);
+            box-shadow: -0.1rem 1.7rem 6.6rem -3.2rem rgba(0, 0, 0, 0.5);
+            height: 15rem;
+            position: relative;
+            transition: all 1s ease;
+            width: 15rem;
+        }
+
+        /* Flip card - covering both the front and inside front page */
+        /* An outer container to hold the flip card. This excludes the inside page */
+        .flip-card {
+            height: 15rem;
+            perspective: 100rem;
+            position: absolute;
+            right: 0;
+            transition: all 1s ease;
+            visibility: hidden;
+            width: 15rem;
+            z-index: 100;
+        }
+
+        /* The outer container's visibility is set to hidden. This is to make everything within the container NOT set to hidden  */
+        /* This is done so content in the inside page can be selected */
+        .flip-card>* {
+            visibility: visible;
+        }
+
+        /* An inner container to hold the flip card. This excludes the inside page */
+        .flip-card__container {
+            height: 100%;
+            position: absolute;
+            right: 0;
+            transform-origin: left;
+            transform-style: preserve-3d;
+            transition: all 1s ease;
+            width: 100%;
+        }
+
+        .card-front,
+        .card-back {
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+        /* Styling for the front side of the flip card */
+        /* container for the front side */
+        .card-front {
+            background-color: #fafbfa;
+            height: 15rem;
+            width: 15rem;
+        }
+
+        /* Front side's top section */
+        .card-front__tp {
+            align-items: center;
+            -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 57% 90%, 50% 100%, 43% 90%, 0 90%);
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 57% 90%, 50% 100%, 43% 90%, 0 90%);
+            display: flex;
+            flex-direction: column;
+            height: 12rem;
+            justify-content: center;
+            padding: 0.75rem;
+        }
+
+        .card-front__tp--city {
+            background: linear-gradient(to bottom, #ff73b9, #ff40a1);
+        }
+
+        .card-front__tp--ski {
+            background: linear-gradient(to bottom, #47c2d7, #279eb2);
+        }
+
+        .card-front__tp--beach {
+            background: linear-gradient(to bottom, #fb9b88, #f86647);
+        }
+
+        .card-front__tp--camping {
+            background: linear-gradient(to bottom, #00db93, #00b97d);
+        }
+
+        /* Front card's bottom section */
+        .card-front__bt {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Styling for the back side of the flip card */
+        .card-back {
+            background-color: #fafbfa;
+            transform: rotateY(180deg);
+        }
+
+        /* Specifically targeting the <video> element */
+        .video__container {
+            -webkit-clip-path: polygon(0% 0%, 100% 0%, 90% 50%, 100% 100%, 0% 100%);
+            clip-path: polygon(0% 0%, 100% 0%, 90% 50%, 100% 100%, 0% 100%);
+            height: auto;
+            min-height: 100%;
+            -o-object-fit: cover;
+            object-fit: cover;
+            width: 100%;
+        }
+
+            /* Inside page */
+            .inside-page {
+                background-color: #fafbfa;
+                box-shadow: inset 20rem 0px 5rem -2.5rem rgba(0, 0, 0, 0.25);
+                height: 100%;
+                padding: 1rem;
+                position: absolute;
+                right: 0;
+                transition: all 1s ease;
+                width: 15rem;
+                z-index: 1;
+            }
+            .inside-page:hover{
+                z-index:101;
+            }
+            .inside-page__container {
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                text-align: center;
+                width: 100%;
+            }
+    
+            /* Functionality ====================================*/
+            /* This is to keep the card centered (within its container) when opened */
+            .card:hover {
+                box-shadow: -0.1rem 1.7rem 6.6rem -3.2rem rgba(0, 0, 0, 0.75);
+                width: 30rem;
+            }
+    
+            /* When the card is hovered, the flip card container will rotate */
+            .card:hover .flip-card__container {
+                transform: rotateY(-180deg);
+            }
+    
+            /* When the card is hovered, the shadow on the inside page will shrink to the left */
+            .card:hover .inside-page {
+                box-shadow: inset 1rem 0px 5rem -2.5rem rgba(0, 0, 0, 0.1);
+            }
+    
+/********************************* END STYLES FOR CARDS  *************************************/
+
+
+
+.footer{
+    min-height: 65px;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-top: 0;
+    display: grid;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+img.social-icon {
+    width: 30px;
+    height: 30px;
+}
+
+
+
+/************************* STYLE FOR ELEMENTS PARALAX  **********************/
+
+.bg-1 {
+    right: 0;
+    top: 20%;
+}
+
+.bg-2 {
+    left: 0;
+    top: 20%;
+}
+
+.bg-3 {
+    left: 50%;
+    top: 20%;
+}
+
+.block-1 {
+    background: url(img/1.jpg) 50% 50% no-repeat;
+}
+
+.block-3 {
+    background: url(img/3.jpg) 50% 50% no-repeat;
+}
+
+.block-5 {
+    background: url(img/5.jpg) 50% 50% no-repeat;
+}
+
+/************************* END  **********************/
+
+
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/*************** Shadow box for EDUCATION block ****************/
+.block-wrap {
+    display: flex;
+    filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.3));
+    margin: 20px 0;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.block {
+    width: 150px;
+    height: 150px;
+    /* background: #fff; */
+    background-color: #48bfed;
+    background-image: -webkit-gradient(linear, left, from(#8e70af), to(#48bfed));
+    background-image: -webkit-linear-gradient(left, #8e70af, #48bfed);
+    background-image: -moz-linear-gradient(left, #8e70af, #48bfed);
+    background-image: -ms-linear-gradient(left, #8e70af, #48bfed);
+    background-image: -o-linear-gradient(left, #8e70af, #48bfed);
+    background-image: linear-gradient(left, #8e70af, #48bfed);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, StartColorStr='#8e70af', EndColorStr='#48bfed');
+}
+
+.block-one {
+    clip-path: polygon(0 0, 100% 0%, 50% 50%, 100% 100%, 0 100%, 0 0);
+}
+
+.block-two {
+    clip-path: polygon(50% 0, 100% 0%, 50% 50%, 100% 100%, 50% 100%, 0 50%);
+}
+
+.block-three {
+    clip-path: polygon(50% 0, 100% 0%, 100% 100%, 50% 100%, 0 50%);
+}
+
+
+/***************************** ADAPTIVE  *******************************/
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    div#header {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+
+@media screen and (max-width: 320px) {
+    h1 {
+        font-weight: 300;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 3rem;
+        margin: 0;
+    }
+}
+
+@media screen and (min-width: 321px) and (max-width: 360px) {
+    h1 {
+        font-weight: 300;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 4rem;
+        margin: 0;
+    }
+}
+
+@media screen and (min-width: 361px) and (max-width: 420px) {
+    h1 {
+        font-weight: 300;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 5rem;
+        margin: 0;
+    }
+}
+
+@media screen and (min-width: 421px) and (max-width: 540px) {
+    h1 {
+        font-weight: 300;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 5.5rem;
+        margin: 0;
+    }
+}
+
+@media screen and (min-width: 434px) and (max-width: 1023px) {
+    .about-info {
+        width: 100%;
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    section img.bg {
+        height: 100vh;
+        object-fit: fill;
+    }
+}
+
+@media screen and (min-width: 380px) and (max-width: 433px) {
+    section.light {
+        padding: .5rem 0;
+    }
+
+    .about-info {
+        width: 100%;
+        padding: .5rem;
+        margin: 0 auto;
+    }
+
+    section img.bg {
+        height: 100vh;
+        object-fit: fill;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 379px) {
+    section.light {
+        padding-top: .5rem;
+        padding-right: 0px;
+        padding-bottom: 5rem;
+        padding-left: 0px;
+    }
+
+    section img.bg {
+        height: 100vh;
+        object-fit: fill;
+    }
+
+    .about-info {
+        width: 100%;
+        padding: .1rem;
+        margin: 0 auto;
+    }
+
+    ul.skills {
+        text-align: left;
+        columns: 2;
+        font-size: 1rem;
+        margin: 1rem 2rem;
+        gap: 2rem;
+    }
+}
+
+
+@media screen and (max-width: 995px) {
+    .containers {
+        margin: 20px auto;
+        display: grid;
+        grid-template-columns: 330px 300px;
+        grid-gap: 20px;
+    }
+}
+
+
+
+@media screen and (max-width: 767px) {
+    .portfolio-container {
+        flex-direction: column;
+    }
+
+    .portfolio-hero {
+        /* max-width: 100%; */
+        align-self: center;
+    }
+
+    .containers {
+        margin: 20px auto;
+        display: inline;
+        grid-template-columns: 330px 300px;
+        grid-gap: 20px;
+    }
+}
