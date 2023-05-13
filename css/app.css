@@ -507,6 +507,8 @@ a:hover {
     display: flex;
     flex-direction: row;
     padding-top: 3rem;
+    justify-content: center;
+    align-items: center;
 }
 
 .portfolio-hero {
@@ -517,8 +519,13 @@ a:hover {
 .containers {
     margin: 20px auto;
     display: grid;
-    grid-template-columns: 460px 430px;
+    grid-template-columns: 480px 480px;
+    grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
     grid-gap: 20px;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
 }
 
 .containers .box {
