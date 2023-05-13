@@ -225,7 +225,6 @@ canvas {
 }
 
 
-
 /***************** STILE FOR WORD IN FIRST DISPLAY BLOCK   **********************/
 
 .word {
@@ -463,15 +462,11 @@ a:hover {
 }
 /********************  END   *********************/
 
-
-
 .portfolio-hero img{
     width: 100%;
     object-fit: cover;
     animation: 1s ease-out 0s 1 slideInLeft;
 }
-
-
 
 /*********************** MEDIA QUERY PORTFOLIO BLOCK   **********************/
 
@@ -488,12 +483,6 @@ a:hover {
     }
 
 /********************  END   *********************/
-
-
-
-
-
-
 
 .portfolio>h2 {
     color: azure
@@ -1043,18 +1032,6 @@ img.social-icon {
     }
 }
 
-
-@media screen and (max-width: 995px) {
-    .containers {
-        margin: 20px auto;
-        display: grid;
-        grid-template-columns: 330px 300px;
-        grid-gap: 20px;
-    }
-}
-
-
-
 @media screen and (max-width: 767px) {
     .portfolio-container {
         flex-direction: column;
@@ -1063,12 +1040,5 @@ img.social-icon {
     .portfolio-hero {
         /* max-width: 100%; */
         align-self: center;
-    }
-
-    .containers {
-        margin: 20px auto;
-        display: inline;
-        grid-template-columns: 330px 300px;
-        grid-gap: 20px;
     }
 }
